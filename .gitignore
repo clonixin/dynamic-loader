@@ -1,0 +1,20 @@
+# Dependencies
+*.d
+
+# Objects
+*.o
+
+# Precompiled Headers
+*.gch
+
+# Dynamic libraries
+*.so
+*.dll
+*.dylib
+
+# Static libraries
+*.a
+
+# Documentation
+docs/*
+!docs/.gitkeep
