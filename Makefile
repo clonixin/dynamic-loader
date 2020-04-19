@@ -15,7 +15,7 @@ CPPFLAGS += -I srcs
 
 TEST_CPPFLAGS += -I tests/srcs
 
-CXXFLAGS += -std=c++17
+CXXFLAGS += -std=c++17 -fpic
 CXXFLAGS += $(DEBUG)
 
 TEST_CXXFLAGS += -fprofile-arcs -ftest-coverage --coverage -fno-builtin -O0
@@ -23,7 +23,7 @@ TEST_CXXFLAGS += -fprofile-arcs -ftest-coverage --coverage -fno-builtin -O0
 DEPFLAGS += -MT $@ -MMD -MP -MF $(DEPSDIR)/$*.Td
 TEST_DEPFLAGS += -MT $@ -MMD -MP -MF $(TEST_DEPSDIR)/$*.Td
 
-LDFLAGS += -Wl,-E
+LDFLAGS += -Wl,-E -shared
 
 TEST_LDFLAGS += -lcriterion --coverage
 
@@ -32,7 +32,7 @@ OBJSDIR = objs
 TESTDIR = tests
 LOGSDIR = logs
 DEPSDIR = .deps
-OUTDIR = .
+OUTDIR = lib
 
 TEST_SRCSDIR = $(TESTDIR)/$(SRCSDIR)
 TEST_OBJSDIR = $(TESTDIR)/$(OBJSDIR)
@@ -57,7 +57,7 @@ GREEN = "\033[0;32m"
 TEAL = "\033[0;36m"
 RED = "\033[0;31m"
 
-NAME = 
+NAME = dynamicloader.so
 
 TEST_NAME = test_dynamicloader
 
