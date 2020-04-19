@@ -43,6 +43,8 @@ NAME =
 
 SRCS += $(SRCSDIR)/
 
+SRCS += $(SRCSDIR)/exceptions/ADLException.cpp
+
 OBJS = $(patsubst $(SRCSDIR)/%,$(OBJSDIR)/%, $(SRCS:.cpp=.o))
 
 all: $(NAME)
