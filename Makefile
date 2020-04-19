@@ -98,6 +98,9 @@ $(OBJSDIR)/%.o: $(SRCSDIR)/%.cpp $(DEPSDIR)/%.d
 
 $(DEPSDIR)/%.d: ;
 
+tags:
+	@ctags -R $(SRCSDIR)
+
 clean: cleandep
 	@-$(RM) $(OBJSDIR)
 	@-$(ECHO) $(TEAL) "Removing objects files" $(DEFAULT)

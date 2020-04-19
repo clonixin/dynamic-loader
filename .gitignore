@@ -18,3 +18,5 @@
 # Documentation
 docs/*
 !docs/.gitkeep
+
+tags
