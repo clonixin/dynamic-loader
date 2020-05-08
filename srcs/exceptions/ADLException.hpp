@@ -4,7 +4,7 @@
 **
 ** \author phantomas <phantomas@phantomas.xyz>
 ** \date Creation: 2020-04-19 19:23
-** \date Last Update: 2020-04-19 19:53
+** \date Last update: 2020-04-28 16:31
 ** \copyright GNU Lesser Public Licence v3
 */
 

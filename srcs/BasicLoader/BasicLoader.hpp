@@ -4,7 +4,7 @@
 **
 ** \author phantomas <phantomas@phantomas.xyz>
 ** \date Creation: 2020-04-17 00:56
-** \date Last Update: 2020-04-19 20:13
+** \date Last update: 2020-04-29 02:23
 ** \copyright GNU Lesser Public Licence v3
 */
 
@@ -14,7 +14,7 @@
 #include <string>
 #include <optional>
 #if __cplusplus < 201703L
-    #warning "insuficient cpp"
+    #warning "C++ version should be c++17 or higher."
 #endif
 #include <type_traits>
 
@@ -47,6 +47,8 @@ namespace clonixin::dynamicloader {
     **   - SymAddr getSymbol(std::string const name) noexcept, which is called
     **     when retrieving a symbol, and should return an opaque type, that can
     **     be compared to nullptr, and reinterpreted as any types.
+    **   - std::string getPath() const noexcept, called if the path of the resource
+    **     is needed.
     **   - std::string getLastError() noexcept, called on error to retrieve
     **     information on what caused it.
     **   - bool reset(...) A function to reset the backend, which should accept
@@ -360,7 +362,7 @@ namespace clonixin::dynamicloader {
     template <class Backend>
     template <typename T>
     ifptr_t<T> BasicLoader<Backend>::getSymbol(std::string const &name) const {
-        typename Backend::SymAddr sym = _backend.getSymbol(name);
+        void * sym = _backend.getSymbol(name);
 
         if (sym == nullptr && _backend.hasError())
             throw cde::DLException<cde::Type::LoadSym>(name, _backend.getLastError());
